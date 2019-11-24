@@ -5,7 +5,7 @@ import {Search} from "../components";
 function Sidebar(props) {
     return (
         <div>
-            <Search />
+            <Search onSearch={props.onSearch} />
             <Filters
                 onFilterPets={props.onFilterPets}
                 activeFilter={props.activeFilter}

@@ -6,7 +6,8 @@ class HomePage extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            activeFilter: ""
+            activeFilter: "",
+            searchValue: ""
         }
     }
 
@@ -24,6 +25,12 @@ class HomePage extends React.Component{
         });
     }
 
+    search = (val) => {
+        this.setState({
+            searchValue: val
+        });
+    }
+
     render(){
         return (
             <div>
@@ -33,10 +40,14 @@ class HomePage extends React.Component{
                             <Sidebar
                                 onFilterPets={this.filterPets}
                                 activeFilter={this.state.activeFilter}
+                                onSearch={this.search}
                             />
                         </div>
                         <div className="col-lg-9">
-                            <PetList activeFilter={this.state.activeFilter} />
+                            <PetList
+                                activeFilter={this.state.activeFilter}
+                                searchValue={this.state.searchValue}
+                            />
                         </div>
                     </div>
                 </div>
