@@ -2,7 +2,6 @@ import React from 'react';
 
 
 function Pet(props) {
-    console.log(props);
     const {name, image, age, description, breed} = props;
     return (
         <div className="col-lg-6 col-md-4 mb-4">

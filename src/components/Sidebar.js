@@ -1,9 +1,10 @@
 import React from 'react';
+import {Filters} from "../components";
 
 function Sidebar(props) {
     return (
         <div>
-            Sidebar
+            <Filters onFilterPets={props.onFilterPets} />
         </div>
     );
 }
