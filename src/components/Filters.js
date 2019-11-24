@@ -2,6 +2,7 @@ import React from 'react';
 import {breedOptions} from "../constants";
 
 function Filters(props) {
+    console.log(props.activeFilter);
     return (
         <div>
             <h4 className="my-4 text-left">Cins</h4>
@@ -11,8 +12,13 @@ function Filters(props) {
                 }}>Hepsi</li>
                 {
                     breedOptions.map((breed) => {
+                        let liClass = "list-group-item";
+                        if(breed === props.activeFilter){
+                            liClass += " active";
+                        }
                         return <li
-                            className="list-group-item"
+                            key={breed}
+                            className={liClass}
                             onClick={(e) => {
                                 e.preventDefault();
                                 props.onFilterPets(breed);
