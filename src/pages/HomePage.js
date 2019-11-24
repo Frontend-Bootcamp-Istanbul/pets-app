@@ -30,7 +30,10 @@ class HomePage extends React.Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-3">
-                            <Sidebar onFilterPets={this.filterPets} />
+                            <Sidebar
+                                onFilterPets={this.filterPets}
+                                activeFilter={this.state.activeFilter}
+                            />
                         </div>
                         <div className="col-lg-9">
                             <PetList activeFilter={this.state.activeFilter} />
