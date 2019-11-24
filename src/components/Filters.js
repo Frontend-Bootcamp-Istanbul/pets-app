@@ -6,7 +6,9 @@ function Filters(props) {
         <div>
             <h4 className="my-4 text-left">Cins</h4>
             <ul>
-                <li className="list-group-item">Hepsi</li>
+                <li className="list-group-item" onClick={() => {
+                    props.onFilterPets("");
+                }}>Hepsi</li>
                 {
                     breedOptions.map((breed) => {
                         return <li

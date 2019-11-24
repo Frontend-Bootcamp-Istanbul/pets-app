@@ -31,28 +31,37 @@ class PetList extends React.Component{
     }
 
     filterPets = (activeFilter) => {
-        this.setState({
-            pets: this.state._pets.filter((pet) => {
-                return pet.breed === activeFilter;
+        if(!activeFilter){
+            this.setState({
+                pets: this.state._pets
             })
-        })
+        }else{
+            this.setState({
+                pets: this.state._pets.filter((pet) => {
+                    return pet.breed === activeFilter;
+                })
+            })
+        }
     }
 
 
     render(){
-        return (
-            <div>
-                {
-                    this.state.yukleniyor ? <div>Yukleniyor</div> : <div className="row">
-                        {
-                            this.state.pets.map((pet) => {
-                                return <Pet key={Math.random()} {...pet} />
-                            })
-                        }
-                    </div>
-                }
-            </div>
-        );
+        const Yukleniyor = <div>Yukleniyor</div>;
+        const EmptyPets = <div>Bulunamadı</div>;
+        const Pets = <div className="row">
+            {
+                this.state.pets.map((pet) => {
+                    return <Pet key={Math.random()} {...pet} />
+                })
+            }
+        </div>;
+        if(this.state.yukleniyor){
+            return Yukleniyor;
+        }else if(this.state.pets.length === 0){
+            return EmptyPets
+        }else{
+            return Pets;
+        }
     }
 }
 
